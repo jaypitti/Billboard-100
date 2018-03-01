@@ -1,6 +1,5 @@
-<nav>
-  <div class="ui fluid two item menu">
-    <a class="item">Billboards</a>
-    <a class="item">Artists</a>
-  </div>
-</nav>
+<div class="ui three item menu">
+  <%= link_to 'Billboards', billboards_path, class: 'item' %>
+  <%= link_to 'Home', root_path, class: 'item' %>
+  <%= link_to 'Artists', artists_path, class: 'item' %>
+</div>
