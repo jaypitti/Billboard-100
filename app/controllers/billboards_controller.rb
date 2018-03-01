@@ -40,7 +40,10 @@ class BillboardsController < ApplicationController
   end 
 
   private 
-
+  def set_song 
+    @song = Song.find(params[:id])
+  end
+  
   def set_billboard 
     @billboard = Billboard.find(params[:id])
   end 
