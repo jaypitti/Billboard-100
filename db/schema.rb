@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20180301212643) do
     t.integer "duration"
     t.string "artwork"
     t.string "artist"
+    t.integer "artist_id"
+    t.integer "billboard_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

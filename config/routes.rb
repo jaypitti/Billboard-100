@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   resources :artists do
     resources :songs
   end
+
+  get '/billboards/:billboard_id/add_song/:id', to: 'billboards#add_song'
+
 end
