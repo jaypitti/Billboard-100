@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   before_action :set_billboard_song, :song_params
 
-# :set_artist_song,
+  # :set_artist_song,
 
   def index
     @artist_songs = @artist.songs.all
@@ -12,9 +12,8 @@ class SongsController < ApplicationController
       @artist_song = @artist.songs.new
     else
       redirect_to artists_path
+    end
   end
-<%= link_to 'Add Song to Billboard', add_song()
-
   #GET /billboards/:billboard_id/add_song/:id
   def add_song
     song = Song.find(params[:id])
