@@ -1,11 +1,14 @@
 class SongsController < ApplicationController::Base
   before_action :set_artist_song, :set_billboard_song, :song_params
 
+def index
+@artist_songs = @artist.songs.all
+end
   def create
     if @artist_song != nil
-      @artist_song = @artist.Song.new
+      @artist_song = @artist.songs.new
     elsif @billboard_song != nil
-      @billboard_song = @billborad.Song.new
+      @billboard_song = @billborad.songs.new
     else
       redirect_to artists_path
     end
@@ -20,19 +23,19 @@ class SongsController < ApplicationController::Base
 
     def edit
       if @artist_song != nil
-        @artist_song = @artist.Song.new
+        @artist_song = @artist.songs.new
       elsif @billboard_song != nil
-        @billboard_song = @billborad.Song.new
+        @billboard_song = @billborad.songs.new
       else
       end
       @num = 1
       @num.save
       def update
         if @artist_song != Artist.new(song_params)
-          @artist_song = @artist.Song.new
+          @artist_song = @artist.songs.new
           @artist_song.save
         elsif @billboard_song != Billboard.new(song_params)
-          @billboard_song = @billborad.Song.new
+          @billboard_song = @billborad.songs.new
           @billboard_song.save
         else
         end
