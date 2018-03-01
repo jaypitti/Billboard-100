@@ -1,0 +1,10 @@
+<h1>Artists</h1>
+<%= link_to 'Create Department', artist_show_path%>
+<hr />
+  <% @artists.each do |artist| %>
+    <h3><%= artist.name%> <%= artist.genre %> <%= artist.bio%></h3>
+      <%= link_to 'Enter', artist_path(artist) %>
+      <%= link_to 'Edit', edit_artist_path(artist) %>
+      <%= link_to 'Delete', artist, method: :delete %>
+      <hr />
+  <% end %>

@@ -1,0 +1,15 @@
+<%= form_for @atrist do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br />
+
+  <%= f.label :genre %>
+  <%= f.text_field :genre %>
+  <br />
+
+  <%= f.label :bio %>
+  <%= f.text_area :bio %>
+  <br />
+
+  <%= f.submit %>
+<% end %>
