@@ -8,17 +8,19 @@ class BillboardsController < ApplicationController
   end
 
   def new
-    @billboard = billboard.new
+    @billboard = Billboard.new
+    render partial: "form" 
   end
 
   def edit
+    render partial: "form"
   end
 
   def create 
     @billboard = Billboard.new(billboard_params)
 
     if @billboard.save 
-      redirect_to billboard_path
+      redirect_to billboard_path(@billboard)
     else 
       render :new 
     end 
