@@ -1,10 +1,19 @@
-<h1><%= @billboard.name %></h1>
-<%= link_to "Edit Billboard", edit_billboard_path(@billboard) %>
-<%= link_to "Delete Billboard", @billboard, method: :delete %>
-<hr />
-<%= link_to "Back", billboards_path %>
-<% @billboard.songs.each do |song| %>
-<%= song.title %>
-<% end %>
-<h1>Songs</h1>
-<%= link_to "Add song", add_song_billboard_path %>
+<div class='ui fluid center aligned container'>
+    <br />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Billboard_logo.svg/2000px-Billboard_logo.svg.png" height= '137' width= '500' />
+    <br />
+    <h1><%= @billboard.name %></h1>
+    <br />
+    <%= button_to "Edit Billboard", edit_billboard_path(@billboard), method: :get, class: 'ui tiny secondary button' %>
+    <br />
+    <%= button_to "Delete Billboard", @billboard, method: :delete, class: 'ui tiny secondary button' %>
+    <br />
+    <%= button_to "Back", billboards_path, method: :get, class: 'ui tiny secondary button' %>
+    <br />
+    <% @billboard.songs.each do |song| %>
+      <h1><%= song.title %></h1>
+    <% end %>
+    <br />
+    <br />
+    <%= button_to "Add Song", add_song_billboard_path(@billboard), method: :get, class: 'ui tiny secondary button' %>
+</div>

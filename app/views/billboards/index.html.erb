@@ -2,9 +2,6 @@
   <br />
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Billboard_logo.svg/2000px-Billboard_logo.svg.png" height= '137' width= '500' />
   <br />
-  <br />
-  <%= button_to "Create New Billboard", new_billboard_path, method: :get, class: 'ui inverted tiny button' %>
-  <br />
   <div class="ui link list">
     <% @billboards.each do |b| %>
       <div class="item">
@@ -12,4 +9,6 @@
       </div>
     <% end %>
   </div>
+  <br />
+  <%= button_to "Create New Billboard", new_billboard_path, method: :get, class: 'ui inverted tiny secondary basic button' %>
 </div>

@@ -1,7 +1,12 @@
-<h1><%= @billboard.id ? 'Edit Billboard' : 'Create Billboard' %></h1>
-<hr /> 
-<%= form_for @billboard do |f| %> 
-  <%= f.label :name %> 
-  <%= f.text_field :name, required: true, autofocus: true %> 
-  <%= f.submit %> 
-<% end %> 
+<div class='ui fluid center aligned container'>
+    <br />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Billboard_logo.svg/2000px-Billboard_logo.svg.png" height= '137' width= '500' />
+    <br />
+    <h1><%= @billboard.id ? 'Edit Billboard' : 'Create Billboard' %></h1>
+    <hr /> 
+    <%= form_for @billboard do |f| %> 
+      <%= f.label :name %> 
+      <%= f.text_field :name, required: true, autofocus: true %> 
+      <%= f.submit %> 
+    <% end %> 
+</div>
