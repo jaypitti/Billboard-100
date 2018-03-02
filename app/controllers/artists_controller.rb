@@ -43,7 +43,7 @@ class ArtistsController < ApplicationController
   private
 
   def artist_params
-    params.require(:artist).permit(:name)
+    params.require(:artist).permit(:name, :genre, :bio)
   end
   def set_song
     @songs = @artist.songs.all

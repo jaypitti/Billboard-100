@@ -42,10 +42,10 @@ class BillboardsController < ApplicationController
     @billboard.destroy
     redirect_to billboards_path
   end
-
   private
 
   def set_billboard
+
     @billboard = Billboard.find(params[:id])
   end
   def set_song
