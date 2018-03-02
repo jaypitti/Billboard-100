@@ -1,0 +1,7 @@
+<hr />
+<% @songs.each do |song| %>
+<%= @billboard.id %>
+<%= song.id %>
+<%= song.title %>
+<%= link_to 'Add to Billboard', add_song_to_billboard_billboard_path(s: song, b: @billboard) %>
+<% end %>

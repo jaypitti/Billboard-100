@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
 
-  resources :billboards do
-    resources :songs
-  end
+  resources :billboards
   resources :artists do
     resources :songs
   end
 
-  get '/billboards/:billboard_id/add_song/:id', to: 'billboards#add_song'
-
+  resources :billboards do
+    member do
+      get :add_song
+      get :add_song_to_billboard
+    end
+  end
 end

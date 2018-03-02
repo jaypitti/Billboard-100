@@ -6,36 +6,36 @@ class SongsController < ApplicationController
     @songs = @artist.songs
   end
 
-  def show 
-  end 
+  def show
+  end
 
-  def new 
-      @song = @artist.songs.new 
+  def new
+      @song = @artist.songs.new
       render parital: "form"
-  end 
+  end
 
   def edit
     render partial: "form"
-  end 
+  end
 
 
   def create
     @song = @artist.songs.new(song_params)
 
-    if @song.save 
+    if @song.save
       redirect_to [@artist, @song]
-    else 
-      render :new 
-    end 
+    else
+      render :new
+    end
   end
 
 
   def update
     if @song.update(song_params)
       redirect_to [@artist, @song]
-    else 
-      render :edit 
-    end 
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -45,16 +45,17 @@ class SongsController < ApplicationController
 
   private
 
+
     def set_artist
       @artist = Artist.find(params[:artist_id])
-    end 
+    end
 
-    def set_song 
+    def set_song
       @song = Song.find(params[:id])
-    end 
+    end
 
-    def song_params 
+    def song_params
       params.require(:song).permit(:title, :duration, :artwork, :artist)
-    end 
+    end
 
-end 
+end

@@ -1,10 +1,10 @@
 <h1>Billboards</h1>
 <%= link_to "Create New Billboard", new_billboard_path %>
 
-<div> 
-  <% @billboards.each do |b| %> 
+<div>
+  <% @billboards.each do |b| %>
     <div>
       <h2><%= link_to b.name, b %></h2>
     </div>
-  <% end %> 
+  <% end %>
 </div>
