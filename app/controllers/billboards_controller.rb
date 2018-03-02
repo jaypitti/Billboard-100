@@ -23,6 +23,9 @@ class BillboardsController < ApplicationController
   end
 
   def show
+    @songs = Song.all
+    @array = @billboard.billboard_songs
+    @billboard.save
   end
 
   def new
