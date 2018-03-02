@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20180302221028) do
 
   create_table "billboards", force: :cascade do |t|
     t.string "name"
+    t.string "billboard_songs"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,7 +43,6 @@ ActiveRecord::Schema.define(version: 20180302221028) do
     t.integer "duration"
     t.string "artwork"
     t.integer "artist_id"
-    t.integer "billboard_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

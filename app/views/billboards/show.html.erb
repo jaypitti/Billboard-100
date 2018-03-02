@@ -10,8 +10,12 @@
     <br />
     <%= button_to "Back", billboards_path, method: :get, class: 'ui tiny secondary button' %>
     <br />
-    <% @billboard.songs.each do |song| %>
-      <h1><%= song.title %></h1>
+    <% @songs.each do |song| %>
+    <% if @array != nil %>
+    <% if @array.include? song.id.to_s %>
+    <%= song.title %>
+    <% end %>
+    <% end %>
     <% end %>
     <br />
     <br />

@@ -1,6 +1,6 @@
 class BillboardsController < ApplicationController
-  before_action :set_billboard, only: [:show, :update, :edit, :destroy]
-  before_action :set_billboard_add, only: [:add_song_to_billboard]
+  before_action :set_billboard, only: [:add_song, :show, :update, :edit, :destroy]
+  before_action :set_b_song_id, only: [:add_song_to_billboard]
 
   def index
     @billboards = Billboard.all
@@ -12,17 +12,20 @@ class BillboardsController < ApplicationController
   end
 
   def add_song_to_billboard
-      song = @billboard.songs.new
-      song = @song
-      song.save
-      song.billboard_id = @billboard.id
-      song.save
-      render :show
-      binding.pry
+    @songs = Song.all
+    @billboard.billboard_songs = "#{@billboard.billboard_songs}, #{@song.id}"
+    @array = @billboard.billboard_songs
+    @a = @array.split(",")
+    @billboard.billboard_songs = @a.join(",")
+    @billboard.save
+    binding.pry
+    render :show
   end
 
   def show
-    @song = Song.where(:billboard_id => nil)
+    @songs = Song.all
+    @array = @billboard.billboard_songs
+    @billboard.save
   end
 
   def new
@@ -58,7 +61,7 @@ class BillboardsController < ApplicationController
   end
 
   private
-  def set_billboard_add
+  def set_b_song_id
     @billboard = Billboard.find(params[:b])
     @song = Song.find(params[:s])
   end

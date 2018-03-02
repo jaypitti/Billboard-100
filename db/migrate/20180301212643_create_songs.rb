@@ -5,7 +5,6 @@ class CreateSongs < ActiveRecord::Migration[5.1]
       t.integer :duration
       t.string :artwork
       t.integer :artist_id
-      t.integer :billboard_id
 
       t.timestamps
     end
