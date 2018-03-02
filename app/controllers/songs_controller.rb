@@ -1,69 +1,46 @@
 class SongsController < ApplicationController
-  before_action :set_billboard_song, :song_params
+  before_action :set_artist, only: [:create, :new, :show, :edit, :update, :destroy]
+
 
   # :set_artist_song,
-
   def index
-    @artist_songs = @artist.songs.all
+    @songs = @artist.songs.all
+  end
+
+  def new
+    @song = @artist.songs.new
   end
 
   def create
-    if @artist_song != nil
-      @artist_song = @artist.songs.new
+    @song = @artist.songs.new(song_params)
+
+    if @song.save
+      redirect_to artist_path(@artist)
     else
-      redirect_to artists_path
+      render :new
     end
   end
   #GET /billboards/:billboard_id/add_song/:id
-  def add_song
-    song = Song.find(params[:id])
-    song.billboard_id = params[:billboard_id]
-    if song.save
-      redirect_to billboard_path(song.billboard_id)
-    else
-      redirect_to new_billboard_song
-    end
-  end
 
   def edit
-    if @artist_song != nil
-      @artist_song = @artist.songs.new
-    elsif @billboard_song != nil
-      @billboard_song = @billborad.songs.new
-    else
-    end
   end
 
   def update
-    if @artist_song != Artist.new(song_params)
-      @artist_song = @artist.songs.new
-      @artist_song.save
-    elsif @billboard_song != Billboard.new(song_params)
-      @billboard_song = @billborad.songs.new
-      @billboard_song.save
-    else
-    end
   end
 
   def destroy
-    if @artist_song
-      @artist_song.destroy
-    else
-      @billboard_song.destroy
-    end
   end
 
   private
 
-  # def set_artist_song
-  #   @artist = Artist.find_by(:id)
-  # end
+  def set_billboard
+    @billboard = Billboard.find(params[:id])
+  end
 
-  def set_billboard_song
-    @billboard = Billboard.find_by(params[:id])
+  def set_artist
+    @artist = Artist.find(params[:artist_id])
   end
   def song_params
-    params.require(:song).permit(:name, :duration, :artwork)
+    params.require(:song).permit(:title, :duration, :artwork)
   end
-
 end
