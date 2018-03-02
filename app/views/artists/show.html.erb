@@ -1,3 +1,8 @@
 <h1><%= @artist.name %></h1>
 <%= link_to 'Back', artists_path(@artists) %>
+<%= link_to 'Add song', new_artist_song_path(@artist) %>
+<%= @artist.id %>
 <hr />
+<% @artist.songs.each do |song| %>
+<p><%= song.title %></p>
+<% end %>
