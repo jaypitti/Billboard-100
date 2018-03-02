@@ -18,23 +18,18 @@ class BillboardsController < ApplicationController
     @a = @array.split(",")
     @billboard.billboard_songs = @a.join(",")
     @billboard.save
-    binding.pry
     render :show
+
   end
 
   def show
-    @songs = Song.all
-    @array = @billboard.billboard_songs
-    @billboard.save
   end
 
   def new
     @billboard = Billboard.new
-    render partial: "form"
   end
 
   def edit
-    render partial: "form"
   end
 
   def create
