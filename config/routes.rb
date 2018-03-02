@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'profiles/new'
+
+  get 'profiles/show'
+
+  get 'profiles/edit'
+
   devise_for :users
   root 'static_pages#home'
 
