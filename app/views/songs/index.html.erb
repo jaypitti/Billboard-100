@@ -1,0 +1,20 @@
+<h1>Songs</h1>
+<%= link_to 'Create a new song', new_artist_song_path(@artist) %> 
+  <% @songs.each do |song| %> 
+  <div class="ui card">
+    <div class="image">
+      <img src="<%= song.artwork %>" />
+    </div>
+    <div class="content">
+      <div>
+        <span class="date"><%= song.title %></span>
+      </div>
+      <div>
+        <span class="date"><%= song.duration %> seconds</span>
+      </div>
+    </div>
+    <div class="extra content">
+    </div>
+  </div>
+<% end %> 
+<%= link_to 'Back To Artist', artist_songs_path(@artist) %>
