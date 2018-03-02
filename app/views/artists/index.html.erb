@@ -3,20 +3,23 @@
 <hr />
   <% @artists.each do |artist| %>
   <div class="ui card">
-  <div class="image">
-    <img src="https://robohash.org/set=set4" />
+  <div>
+    <img src="<%= artist.image %>">
   </div>
   <div class="content">
     <a class="header"><%= artist.name %></a>
     <div class="meta">
       <span class="date">Genre: <%= artist.genre %></span>
     </div>
+    <div>
+      <a href="<%= artist.website %>">Website</a>
+    </div>
     <div class="description">
       <%= artist.bio %>
     </div>
   </div>
   <div class="extra content">
-    <%= link_to 'View Songs', artist_path(artist) %>
+    <%= link_to 'View Artist', artist_path(artist) %>
     <%= link_to 'Edit', edit_artist_path(artist) %>
     <%= link_to 'Delete', artist, method: :delete %>
   </div>

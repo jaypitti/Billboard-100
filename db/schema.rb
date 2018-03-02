@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20180301212643) do
     t.string "name"
     t.string "genre"
     t.string "bio"
+    t.text "image"
+    t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,7 +35,6 @@ ActiveRecord::Schema.define(version: 20180301212643) do
     t.string "title"
     t.integer "duration"
     t.string "artwork"
-    t.string "artist"
     t.integer "artist_id"
     t.integer "billboard_id"
     t.datetime "created_at", null: false
